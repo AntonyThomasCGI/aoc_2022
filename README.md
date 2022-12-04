@@ -1,1 +1,1 @@
-Trying to solve with cpp this year. Probably sorry for ugly cpp code :^)
+trying to solve with cpp this year. probably sorry for ugly cpp code lol :^)
