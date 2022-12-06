@@ -58,6 +58,7 @@ void part_two()
 			}
 		}
 		int move = instructions[0];
+		// Instructions are 1 indexed, we want 0 indexed.
 		int from = instructions[1] - 1;
 		int to = instructions[2] - 1;
 
@@ -131,6 +132,7 @@ void part_one()
 			}
 		}
 		int move = instructions[0];
+		// Instructions are 1 indexed, we want 0 indexed.
 		int from = instructions[1] - 1;
 		int to = instructions[2] - 1;
 
