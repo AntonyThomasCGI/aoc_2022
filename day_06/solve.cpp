@@ -5,12 +5,6 @@
 #define INPUT_FILE "./input.txt"
 
 
-void part_two()
-{
-	std::ifstream input(INPUT_FILE);
-}
-
-
 bool has_duplicates(std::string s)
 {
 	for (int i = 0; i < s.length(); i++) {
@@ -25,7 +19,7 @@ bool has_duplicates(std::string s)
 }
 
 
-void part_one()
+void part_one(int window = 4)
 {
 	std::ifstream input(INPUT_FILE);
 	std::string line;
@@ -33,19 +27,25 @@ void part_one()
 	input >> line;
 
 	for (int i = 0; i < line.length(); i++) {
-		std::string sub_str = line.substr(i, 14);
+		std::string sub_str = line.substr(i, window);
 		if (!has_duplicates(sub_str)) {
-			std::cout << i + 14 << std::endl;
+			std::cout << i + window << std::endl;
 			break;
 		}
 	}
 }
 
 
+void part_two()
+{
+	part_one(14);
+}
+
+
 int main()
 {
 	part_one();
-	// part_two();
+	part_two();
 
 	return 0;
 }
