@@ -23,27 +23,20 @@
 // from North/East/South/West.
 bool** build_visible_tree_array(int forest[][HEIGHT])
 {
-	bool **result;
+	bool **result = new bool*[WIDTH];
 	int curr_max;
-
-	// Initialize result.
-	result = new bool*[WIDTH];
-	for (int x = 0; x < WIDTH; x++) {
-		result[x] = new bool[HEIGHT];
-		for (int y = 0; y < HEIGHT; y++) {
-			result[x][y] = false;
-		}
-	}
-
+	
 	// Loop width then height to check east and west directions.
 	for (int x = 0; x < WIDTH; x++) {
+		// Initialize array.
+		result[x] = new bool[HEIGHT];
 		// Check East.
 		curr_max = -1;
 		for (int y = 0; y < HEIGHT; y++) {
 			bool visible = (forest[x][y] > curr_max) ? true : false;
 			if (visible)
 				curr_max = forest[x][y];
-			result[x][y] = result[x][y] | visible;
+			result[x][y] = visible;
 		}
 		// Check West.
 		curr_max = -1;
@@ -173,7 +166,7 @@ void part_one()
 		}
 	}
 
-    bool visible_trees = build_visible_tree_array(forest);
+    bool **visible_trees = build_visible_tree_array(forest);
 
 	// Combine arrays and get result.
 	int result = 0;
